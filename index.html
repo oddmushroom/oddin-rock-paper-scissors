@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Piedra, Papel o Tijeras</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="drip.css">
+    </head>
+
+    <body>
+        <div class="encabezado">
+            <h1>Piedra, Papel o Tijeras</h1>
+        </div>
+
+        <div class="puntuaciones">
+            <div class="puntuacion-jugador">0</div>
+            <div style="margin: 0rem 8rem">-</div>
+            <div class="puntuacion-computadora">0</div>
+        </div>
+
+        <div class="elecciones">
+            <div class="bot">
+                <button type="button" data-afsa="Piedra">PIEDRA</button>
+            </div>
+            <div class="bot">
+                <button type="button" data-afsa="Papel">PAPEL</button>
+            </div>
+            <div class="bot">
+                <button type="button" data-afsa="Tijeras">TIJERAS</button>
+            </div>
+        </div>
+
+        <div class="tablero">
+            <div class="tablero-mitad">
+                <div class="encabezado-abajo">JUGADOR</div>
+                <div class="eleccion-jugador"></div>
+            </div>
+            <div class="tablero-mitad">
+                <div class="encabezado-abajo">COMPUTADORA</div>
+                <div class="eleccion-computadora"></div>
+            </div>
+        </div>
+    </body>
+    <script src="js.js"></script>
+</html>
