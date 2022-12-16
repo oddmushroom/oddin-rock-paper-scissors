@@ -6,10 +6,11 @@ const puntajeComputadora = document.querySelector('.puntuacion-computadora');
 const eleccionJugador = document.querySelector('.eleccion-jugador');
 const eleccionComputadora = document.querySelector('.eleccion-computadora');
 
-botones.forEach((boton) => boton.AddEventListener('click', () => {
-    if (rondaComputadora >= 5 || rondaJugador >=5){
-    return;}
-jugar(boton.data.afsa);
+botones.forEach((boton) => boton.addEventListener('click', () => {
+    if(rondaJugador >= 5 || rondaComputadora >= 5) {
+        return;
+    }
+    jugar(boton.dataset.afsa);
 }));
 
 function nroAleatorio(n){
@@ -61,4 +62,28 @@ function crearParagrafo(texto) {
     const p = document.createElement('p');
     p.textContent = texto;
     return p;
+}
+
+function jugar(jugadorElec) {
+    let jugadorSeleccion = jugadorElec;
+    let computadoraSeleccion = obtEleccionComputadora();
+    let rondaResultado = jugarRonda(jugadorSeleccion, computadoraSeleccion);
+
+    if (rondaResultado.search('GANAS') > -1) {
+        rondaJugador++;
+    } else if (rondaResultado.search('PIERDES') > -1) {
+        rondaComputadora++;
+    }
+
+puntajeJugador.textContent = rondaJugador;
+puntajeComputadora.textContent = rondaComputadora;
+mensaje.textContent = rondaResultado;
+eleccionJugador.appendChild(crearParagrafo(jugadorSeleccion));
+eleccionComputadora.appendChild(crearParagrafo(computadoraSeleccion));
+
+if (rondaJugador >= 5 && rondaComputadora < 5) {
+    mensaje.textContent = 'GANASTE!';
+}   else if (rondaComputadora >= 5) {
+    mensaje.textContent = 'PERDISTE MALASO!';
+}
 }
