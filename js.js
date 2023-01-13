@@ -83,7 +83,9 @@ eleccionComputadora.appendChild(crearParagrafo(computadoraSeleccion));
 
 if (rondaJugador >= 5 && rondaComputadora < 5) {
     mensaje.textContent = 'GANASTE!';
+    mensaje.classList.add('verde');
 }   else if (rondaComputadora >= 5) {
-    mensaje.textContent = 'PERDISTE MALASO!';
+    mensaje.textContent = 'PERDISTE!';
+    mensaje.classList.add('rojo');
 }
 }
